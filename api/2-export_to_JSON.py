@@ -23,8 +23,7 @@ if __name__ == "__main__":
         tasks.append({
             "task": task.get("title"),
             "completed": task.get("completed"),
-            "username": username})
-    
-    data = {employee_id : tasks}
+            "username": username})  
+    data = {employee_id: tasks}
     with open("{}.json".format(employee_id), "w") as f:
         json.dump(data, f)
