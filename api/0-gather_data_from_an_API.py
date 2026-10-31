@@ -3,19 +3,20 @@
 import requests
 import sys
 
-employee_id = int(sys.argv[1])
+if __name__== "__main__":
 
-url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id)
-base_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
+    employee_id = int(sys.argv[1])
 
-ready = requests.get(url)
-the_file = ready.json()
+    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id)
+    base_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
 
-ready1 = requests.get(base_url).json()
+    ready = requests.get(url)
+    the_file = ready.json()
 
-done = [item for item in the_file if item["completed"]]
+    ready1 = requests.get(base_url).json()
 
-print("Employee {} is done with tasks({}/{}):".format(
-    ready1["name"], len(done), len(the_file)))
-for item in done:
-    print("\t {}".format(item["title"]))
+    done = [item for item in the_file if item["completed"]]
+
+    print("Employee {} is done with tasks({}/{}):".format(ready1["name"], len(done), len(the_file)))
+    for item in done:
+        print("\t {}".format(item["title"]))
