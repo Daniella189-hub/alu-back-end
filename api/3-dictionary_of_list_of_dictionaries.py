@@ -5,8 +5,6 @@ import requests
 import sys
 
 if __name__ == "__main__":
-
-
     base = "https://jsonplaceholder.typicode.com"
     users = requests.get("{}/users".format(base)).json()
     todos = requests.get("{}/todos".format(base)).json()
